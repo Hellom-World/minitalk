@@ -3,20 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: heolivei <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: heolivei <heolivei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 18:43:23 by heolivei          #+#    #+#             */
-/*   Updated: 2023/03/22 18:43:24 by heolivei         ###   ########.fr       */
+/*   Updated: 2023/06/14 00:50:03 by heolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <signal.h>
 #include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
 
 void	send_bits(int pid, char c)
 {
-	
+	int	count_bit;
+	count_bit = 0;
+	while (count_bit < 8)
+	{
+		if ((c & (0x01 << count_bit)) != 0)
+			kill(pid, SIGUSR1);
+		else
+			kill(pid, SIGUSR2);
+		usleep(100);
+		count_bit++;
+	}
 }
 
 int	main(int argc, char **argv)
@@ -36,7 +48,7 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
-		printf("Escreva direito!!\n")
-		printf("Assim e' direito: ./client <PID> <Message>\n")
+		printf("Escreva direito!!\n");
+		printf("Assim e' direito: ./client <PID> <Message>\n");
 	}
 }
