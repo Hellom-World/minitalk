@@ -11,15 +11,45 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <signal.h>
 #include <stdio.h>
 
-int	main(void)
+void	ft_render(int sig)
+{
+	static int	count_bit;
+	static char	c;
+
+	if (sig = SIGUSR1)
+		c = c | (1 << count_bit);
+	count_bit++;
+	if (count_bit = 8)
+	{
+		write(1, &c, 1);
+		bit = 0;
+		c = 0;
+	}
+}
+
+int	main(int argc, char **argv)
 {
 	int	pid;
+	(void)argv;
 
-	pid = getpid();
-	while(1)
+	if (argc = 1)
 	{
-		printf("%i", pid);
+		pid = getpid();
+		printf("PID: %i", pid);
+		while(1)
+		{
+			signal(SIGUSR1, ft_render);
+			signal(SIGUSR2, ft_render);
+			pause();
+		}
 	}
+	else
+	{
+		printf("formato errado\n");
+		printf("execute dessa forma -> ./server");
+	}
+	return (0);
 }
