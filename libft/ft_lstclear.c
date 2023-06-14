@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: heolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/22 18:43:38 by heolivei          #+#    #+#             */
-/*   Updated: 2023/03/22 18:48:41 by heolivei         ###   ########.fr       */
+/*   Created: 2022/11/30 12:51:23 by heolivei          #+#    #+#             */
+/*   Updated: 2022/11/30 14:17:19 by heolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-#define MINITALK_H
+#include "libft.h"
 
-#include <signal.h>
-#include "./libft/libft.h"
+void	ft_lstclear(t_list **lst, void (*del)(void *))
+{	
+	t_list	*tmp;
 
-/*cc client.c libft/libft.a -o client*/
-/*cc server.c libft/libft.a -o server*/
-
-#endif
+	if (!lst || !del)
+		return ;
+	while (*lst != NULL)
+	{
+		tmp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = tmp;
+	}
+}

@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: heolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/22 18:43:38 by heolivei          #+#    #+#             */
-/*   Updated: 2023/03/22 18:48:41 by heolivei         ###   ########.fr       */
+/*   Created: 2022/11/30 14:22:27 by heolivei          #+#    #+#             */
+/*   Updated: 2022/11/30 14:43:29 by heolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-#define MINITALK_H
+#include "libft.h"
 
-#include <signal.h>
-#include "./libft/libft.h"
-
-/*cc client.c libft/libft.a -o client*/
-/*cc server.c libft/libft.a -o server*/
-
-#endif
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{	
+	if (!f)
+		return ;
+	while (lst != NULL)
+	{
+		(*f)(lst->content);
+		lst = lst->next;
+	}
+}

@@ -10,11 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <signal.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
+#include "minitalk.h"
 
 void	send_bits(int pid, char c)
 {
@@ -45,6 +41,7 @@ int	main(int argc, char **argv)
 			send_bits(pid, argv[2][i]);
 			i++;
 		}
+		send_bits(pid, '\n');
 	}
 	else
 	{

@@ -10,21 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <signal.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <sys/types.h>
 
-void printBits(char c)
-{
-    for (int i = 7; i >= 0; i--)
-    {
-        unsigned char bit = (c >> i) & 1;
-        printf("%u", bit);
-    }
-    printf("\n");
-}
+#include "minitalk.h"
+
 
 void	ft_render(int sig)
 {
@@ -36,9 +24,7 @@ void	ft_render(int sig)
 	count_bit++;
 	if (count_bit == 8)
 	{
-		 printf("Caractere reconstruído: %c\n", c);
-		printBits(c);
-
+		write(1, &c, 1);
 		count_bit = 0;
 		c = 0;
 	}
@@ -51,13 +37,13 @@ int	main(int argc, char **argv)
 
 	if (argc != 1)
 	{
-		printf("formato errado\n");
-		printf("execute dessa forma -> ./server");
+		ft_printf("formato errado\n");
+		ft_printf("execute dessa forma -> ./server");
 		return (0);
 	}
 	pid = getpid();
-	printf("PID: %d\n", (int)pid);
-	printf("Esperando mensagem...\n");
+	ft_printf("PID: %d\n", (int)pid);
+	ft_printf("Esperando mensagem...\n");
 	while(1)
 	{
 		signal(SIGUSR1, ft_render);
