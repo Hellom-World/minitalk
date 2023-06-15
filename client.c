@@ -6,7 +6,7 @@
 /*   By: heolivei <heolivei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 18:43:23 by heolivei          #+#    #+#             */
-/*   Updated: 2023/06/14 00:50:03 by heolivei         ###   ########.fr       */
+/*   Updated: 2023/06/15 17:53:22 by heolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	send_bits(int pid, char c)
 {
 	int	count_bit;
+
 	count_bit = 0;
 	while (count_bit < 8)
 	{

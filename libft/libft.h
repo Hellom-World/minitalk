@@ -6,7 +6,7 @@
 /*   By: heolivei <heolivei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 14:43:48 by heolivei          #+#    #+#             */
-/*   Updated: 2022/11/30 14:46:12 by heolivei         ###   ########.fr       */
+/*   Updated: 2023/06/15 17:44:52 by heolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,23 +95,21 @@ char	*get_next_line(int fd);
 char	*ft_brute_line(int fd, char *brute_line);
 char	*ft_liquid_line(char *brute_line);
 char	*ft_rest_line(char *brute_line);
-
 //size_t	ft_strlen(char *s);
 //char	*ft_strjoin(char *s1, char *s2);
 //char	*ft_strchr(char *s, int c);
-
+//
 /*Functions to printf*/
 
-int	ft_printf(const char *str, ...);
-int	ft_formats(va_list args, const char format);
-int	ft_print_char(char c);
-int	ft_print_str(char *str);
+int		ft_printf(const char *str, ...);
+int		ft_formats(va_list args, const char format);
+int		ft_print_char(char c);
+int		ft_print_str(char *str);
 
-int	ft_print_pointer(size_t pointer);
+int		ft_print_pointer(size_t pointer);
 
-int	ft_print_number(int n);
-int	ft_print_unsigned(unsigned int n);
+int		ft_print_number(int n);
+int		ft_print_unsigned(unsigned int n);
 
-int	ft_print_hex(size_t n, char c);
-
+int		ft_print_hex(size_t n, char c);
 #endif

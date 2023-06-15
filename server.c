@@ -6,13 +6,11 @@
 /*   By: heolivei <heolivei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 18:44:31 by heolivei          #+#    #+#             */
-/*   Updated: 2023/06/14 00:41:59 by heolivei         ###   ########.fr       */
+/*   Updated: 2023/06/15 17:53:03 by heolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "minitalk.h"
-
 
 void	ft_render(int sig)
 {
@@ -33,8 +31,8 @@ void	ft_render(int sig)
 int	main(int argc, char **argv)
 {
 	int	pid;
-	(void)argv;
 
+	(void)argv;
 	if (argc != 1)
 	{
 		ft_printf("formato errado\n");
@@ -44,7 +42,7 @@ int	main(int argc, char **argv)
 	pid = getpid();
 	ft_printf("PID: %d\n", (int)pid);
 	ft_printf("Esperando mensagem...\n");
-	while(1)
+	while (1)
 	{
 		signal(SIGUSR1, ft_render);
 		signal(SIGUSR2, ft_render);
